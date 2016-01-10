@@ -64,5 +64,17 @@ describe('pageLocalStorage', function () {
       expect(pageLocalStorage.getItem('foo')).to.eql('bar');
     })
   })
+
+  describe('#clear', function() {
+    it('removes all items from page local storage', function () {
+      let expectedStore = { 'about:blank': JSON.stringify({ foo: 'bar' }) };
+
+      pageLocalStorage.setItem('foo', 'bar');
+      expect(pageLocalStorage.getItem('foo')).to.eql('bar');
+
+      pageLocalStorage.clear();
+      expect(pageLocalStorage.getItem('foo')).to.be.null;
+    })
+  })
 });
 

@@ -14,7 +14,7 @@ class MockLocalStorage {
       return String(value);
     });
 
-    this.remoteItem = simple.spy((key) => {
+    this.removeItem = simple.spy((key) => {
       delete this.store[key];
     });
   }
