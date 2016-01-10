@@ -2,7 +2,10 @@
   "name": "page-local-storage",
   "version": "0.1.0",
   "description": "A utility to store objects in localstorage, scoped by URL.",
-  "main": "index.js",
+  "main": "./lib/index.js",
+  "directories": {
+    "lib": "./lib"
+  },
   "scripts": {
     "test": "mocha --compilers js:babel-core/register",
     "srv": "http-server server/"
