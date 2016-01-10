@@ -7,8 +7,7 @@
     "lib": "./dist"
   },
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register",
-    "srv": "http-server server/"
+    "test": "mocha --compilers js:babel-core/register"
   },
   "repository": "https://github.com/djds23/page-local-storage",
   "keywords": [
@@ -35,7 +34,6 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",
-    "http-server": "^0.8.5",
     "jsdom": "^7.2.2",
     "mocha": "^2.3.4",
     "mocha-jsdom": "^1.0.0",
