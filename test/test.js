@@ -108,5 +108,19 @@ describe('pageLocalStorage', function () {
       expect(window.localStorage.store).to.eql({});
     })
   })
+
+  describe('#length', function () {
+    it('returns the number of items in the page local store', function () {
+      expect(pageLocalStorage.length).to.eql(0);
+      pageLocalStorage.setItem('foo', 'bar');
+      expect(pageLocalStorage.length).to.eql(1);
+    })
+
+    it('is read-only', function () {
+      expect(() => {
+        pageLocalStorage.length = 100;
+      }).to.throw(Error);
+    })
+  })
 });
 
