@@ -122,5 +122,16 @@ describe('pageLocalStorage', function () {
       }).to.throw(Error);
     })
   })
+
+  describe('#key', function () {
+    it('returns null when empty', function () {
+      expect(pageLocalStorage.key(0)).to.be.null;
+    })
+
+    it('returns the key attached to the object', function () {
+      pageLocalStorage.setItem('foo', 'bar');
+      expect(pageLocalStorage.key(0)).to.eql('foo');
+    })
+  })
 });
 
