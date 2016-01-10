@@ -28,7 +28,6 @@ gulp.task('default', function () {
         .pipe(uglify())
         .on('error', gutil.log)
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./dist/'))
-    .pipe(gulp.dest('./server/'));
+    .pipe(gulp.dest('./dist/'));
 });
 
