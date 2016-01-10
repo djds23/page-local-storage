@@ -22,15 +22,17 @@ pageLocalStorage.setItem("name", "Robert")
 */
 ```
 
-# Installation
+## Installation
 
 `npm install page-local-storage`
 
-# Fork and Contribute
+## Fork and Contribute
 
 This project uses babel, ES6, browserify and flow to deliver type safe javascript. You can learn more about installing [flow here](http://flowtype.org/docs/getting-started.html#_). Take a peak [here to read about the different type annotations](http://flowtype.org/docs/quick-reference.html#_).
 
 Fork and make a pull request! I will be happy to review all suggestions.
+
+## License
 
 The MIT License (MIT)
 Copyright (c) 2016 Dean Silfen
