@@ -1,4 +1,5 @@
 # page-local-storage
+# The build is currently broken.
 
 This package creates a localStorage object for each different URL.
 
