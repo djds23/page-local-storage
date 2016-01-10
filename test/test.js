@@ -5,6 +5,7 @@ import jsdom from 'mocha-jsdom';
 import MockLocalStorage from './localStorage';
 import pageLocalStorage from '../lib/store';
 
+
 describe('pageLocalStorage', function () {
   jsdom()
 
@@ -12,10 +13,19 @@ describe('pageLocalStorage', function () {
     global.window = document.defaultView;
     window.localStorage = new MockLocalStorage();
   })
+
   describe('#setItem', function () {
     beforeEach(function () {
       window.location.href = 'about:blank'
     })
+
+    it('demands two arguments', function () {
+      let badCall = function () {
+        pageLocalStorage.setItem('foo')
+      }
+     expect(badCall).to.throw(Error);
+    })
+
     it('sets items in the current url', function () {
       let expectedStore = {};
 

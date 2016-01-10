@@ -15,6 +15,29 @@
 
         <!-- Add your site or application content here -->
         <p>Test for local storage.</p>
-        <script src="lib/index.js"></script>
+        <input type="text" id='has_from' />
+        <button onclick="addToStore();">add item<button/>
+
+        <div id="storage_view"></div>
+        <script src="index.js"></script>
+        <script type="text/javascript">
+var div = document.getElementById('storage_view');
+function addToStore() {
+  var output = "";
+  var storage = window.localStorage;
+
+  if (localStorage.length === 0) {
+    pageLocalStorage.setItem('stuff', 'here');
+  }
+
+  for (var i = 0; i < storage.length; i++) {
+    var key = 'KEY: ' + storage.key(i) + '\n';
+    var value = 'VALUE: ' + storage.getItem(key) + '\n';
+    output += key;
+    output += value;
+  }
+  div.innerHTML = output;
+}
+        </script>
     </body>
 </html>
