@@ -16,14 +16,15 @@ describe('pageLocalStorage', function () {
 
   describe('#setItem', function () {
     beforeEach(function () {
-      window.location.href = 'about:blank'
+      window.location.href = 'about:blank';
     })
 
     it('demands two arguments', function () {
       let badCall = function () {
-        pageLocalStorage.setItem('foo')
+        pageLocalStorage.setItem('foo');
       }
-     expect(badCall).to.throw(Error);
+
+      expect(badCall).to.throw(Error);
     })
 
     it('sets items in the current url', function () {
@@ -39,7 +40,7 @@ describe('pageLocalStorage', function () {
       let urlTwo = 'https://github.com/djds23/page-local-storage/pulls/2';
       expectedStore[urlTwo] = JSON.stringify({foo: 'quux'});
 
-      window.location.href = urlTwo
+      window.location.href = urlTwo;
       pageLocalStorage.setItem('foo', 'quux');
       expect(window.localStorage.store).to.eql(expectedStore);
     })
@@ -65,7 +66,7 @@ describe('pageLocalStorage', function () {
     })
   })
 
-  describe('#clear', function() {
+  describe('#clear', function () {
     it('removes all items from page local storage', function () {
       let expectedStore = { 'about:blank': JSON.stringify({ foo: 'bar' }) };
 
@@ -74,6 +75,37 @@ describe('pageLocalStorage', function () {
 
       pageLocalStorage.clear();
       expect(pageLocalStorage.getItem('foo')).to.be.null;
+    })
+  })
+
+  describe('#removeItem', function () {
+    it('does nothing if the cache is empty', function () {
+      pageLocalStorage.removeItem('nonExistant');
+      expect(window.localStorage.store).to.be.empty;
+    })
+
+    it('removes one key from new page local cache', function () {
+      pageLocalStorage.setItem('foo', 'bar');
+      pageLocalStorage.setItem('quux', 'baz');
+
+      expect(window.localStorage.store).to.eql({
+        'about:blank': JSON.stringify({foo: 'bar', quux: 'baz'})
+      });
+
+      pageLocalStorage.removeItem('foo');
+      expect(window.localStorage.store).to.eql({
+        'about:blank': JSON.stringify({quux: 'baz'})
+      });
+    })
+
+    it('removes url key if new page local cache is empty', function () {
+      pageLocalStorage.setItem('foo', 'bar');
+      expect(window.localStorage.store).to.eql({
+        'about:blank': JSON.stringify({foo: 'bar'})
+      });
+
+      pageLocalStorage.removeItem('foo');
+      expect(window.localStorage.store).to.eql({});
     })
   })
 });
