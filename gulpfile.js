@@ -21,7 +21,7 @@ gulp.task('default', function () {
   });
 
   return b.bundle()
-    .pipe(source('./lib/index.js'))
+    .pipe(source('index.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
         // Add transformation tasks to the pipeline here.
