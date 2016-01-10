@@ -1,6 +1,6 @@
 {
   "name": "page-local-storage",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A utility to store objects in localstorage, scoped by URL.",
   "main": "./lib/index.js",
   "directories": {
