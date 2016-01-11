@@ -3,7 +3,7 @@ import simple from 'simple-mock';
 import jsdom from 'mocha-jsdom';
 
 import MockLocalStorage from './localStorage';
-import pageLocalStorage from '../lib/store';
+import pageLocalStorage from '../src/store';
 
 
 describe('pageLocalStorage', function () {
