@@ -17,7 +17,7 @@ gulp.task('default', function () {
     debug: true,
   }).transform("babelify", {
     presets: ["es2015"],
-    plugins: ["syntax-flow", "transform-flow-strip-types", "add-module-exports"]
+    plugins: ["syntax-flow", "transform-flow-strip-types", "transform-es2015-modules-commonjs", "add-module-exports"]
   });
 
   return b.bundle()
